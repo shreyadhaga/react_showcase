@@ -1,8 +1,5 @@
 import mainAtomImg from "./assets/react-core-concepts.png";
-import componentsImg from "./assets/components.png";
-import configImg from "./assets/config.png";
-import stateManagementImg from "./assets/state-mgmt.png";
-import jsxImg from "./assets/jsx-ui.png";
+import { CORE_CONCEPTS } from "./data";
 
 const reactDescriptions = ["Fundamental", "Crutial", "Core"];
 
@@ -42,26 +39,9 @@ function App() {
         <section id="core-concepts">
           <h2>Time to get started!</h2>
           <ul>
-            <CoreConcept
-              title="Components"
-              description="The core UI building block."
-              image={componentsImg}
-            />
-            <CoreConcept
-              title="Components"
-              description="The core UI building block."
-              image={configImg}
-            />
-            <CoreConcept
-              title="Components"
-              description="The core UI building block."
-              image={stateManagementImg}
-            />
-            <CoreConcept
-              title="Components"
-              description="The core UI building block."
-              image={jsxImg}
-            />
+            {CORE_CONCEPTS.map((item) => (
+              <CoreConcept {...item} />
+            ))}
           </ul>
         </section>
       </main>

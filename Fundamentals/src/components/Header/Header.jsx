@@ -1,4 +1,4 @@
-import mainAtomImg from "../assets/react-core-concepts.png";
+import mainAtomImg from "../../assets/react-core-concepts.png";
 import './Header.css';
 
 const reactDescriptions = ["Fundamental", "Crutial", "Core"];

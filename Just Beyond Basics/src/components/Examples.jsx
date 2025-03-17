@@ -29,7 +29,6 @@ export default function Examples() {
             id="examples"
             title="Examples">
             <Tabs
-                buttonsContainer="menu"
                 buttons={
                     <>
                         <TabButton isSelected={selectedTopic === "components"} onClick={() => handleSelect("components")}> Components </TabButton>

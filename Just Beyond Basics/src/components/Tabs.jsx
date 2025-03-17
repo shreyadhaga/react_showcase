@@ -1,6 +1,6 @@
 
-export default function Tabs({ buttons, children, buttonsContainer }) {
-    let ButtonsContainer = buttonsContainer;
+export default function Tabs({ buttons, children, ButtonsContainer="menu" }) {
+    // let ButtonsContainer = buttonsContainer;
     return (
         <>
             <ButtonsContainer>

@@ -1,10 +1,7 @@
-const initialGameBoard = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
 
-export default function Gameboard({ onSelectSquare }) {
+export default function Gameboard({ onSelectSquare, board }) {
+  //Derived Satate
+
   // const [gameBoard, setGameBoard] = useState(initialGameBoard);
   // //   function handleSelectSquare(rowIndex, colIndex) {
   // //     setGameBoard((prevGameBoard) => {
@@ -22,12 +19,17 @@ export default function Gameboard({ onSelectSquare }) {
   // }
   return (
     <ol id="game-board">
-      {gameBoard.map((row, rowIndex) => (
+      {board.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>
             {row.map((playerSymbol, colIndex) => (
               <li key={colIndex}>
-                <button onClick={() => onSelectSquare(rowIndex, colIndex)}>{playerSymbol}</button>
+                <button
+                  disabled={playerSymbol !== null}
+                  onClick={() => onSelectSquare(rowIndex, colIndex)}
+                >
+                  {playerSymbol}
+                </button>
               </li>
             ))}
           </ol>

@@ -1,4 +1,4 @@
-import { calculateInvestmentResults } from "../../util/investment";
+import { calculateInvestmentResults, formatter } from "../../util/investment";
 const HEADERS = [
   "Year",
   "Investment Value",
@@ -24,10 +24,10 @@ export default function Table({ investment }) {
           ? annualData.map((item, index) => (
               <tr key={index}>
                 <td>{item.year}</td>
-                <td>{item.interest}</td>
+                <td>{formatter.format(item.interest)}</td>
                 <td>{parseInt(2025 + index, 10)}</td>
-                <td>{item.valueEndOfYear}</td>
-                <td>{item.annualInvestment}</td>
+                <td>{formatter.format(item.valueEndOfYear)}</td>
+                <td>{formatter.format(item.annualInvestment)}</td>
               </tr>
             ))
           : null}

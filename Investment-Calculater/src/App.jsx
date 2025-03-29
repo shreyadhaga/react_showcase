@@ -1,28 +1,31 @@
 import { useState } from "react";
-import Form from "./components/forum/form";
-import Table from "./components/investments/Table";
+import Header from "./components/Header";
+import UserInput from "./components/UserInput";
+import Results from "./components/Results";
+
 function App() {
-  const [investment, setInvestment] = useState({
-    initialInvestment: "",
-    annualInvestment: "",
-    expectedReturn: "",
-    duration: "",
+  const [userInput, setUserInput] = useState({
+    initialInvestment: 10000,
+    annualInvestment: 1200,
+    expectedReturn: 6,
+    duration: 10,
   });
-  function onChangedInvestmentStateValue(key, value) {
-    setInvestment((prevState) => {
-      const newObj = { ...prevState };
-      newObj[key] = value;
-      return newObj;
+
+  const inputIsValid = userInput.duration >= 1;
+  function handleChange(inputIdentiier, newValue) {
+    setUserInput((prevUserInput) => {
+      return {
+        ...prevUserInput,
+        [inputIdentiier]: +newValue,
+      };
     });
   }
   return (
     <>
-      <Form
-        onChangeParams={(key, value) =>
-          onChangedInvestmentStateValue(key, value)
-        }
-      />
-      <Table investment={investment} />
+      <Header />
+      <UserInput userInput={userInput} onChange={handleChange} />
+      {inputIsValid ? <Results input={userInput} /> : 
+      <p className="center">Please enter a duration greater than zero.</p>}
     </>
   );
 }
